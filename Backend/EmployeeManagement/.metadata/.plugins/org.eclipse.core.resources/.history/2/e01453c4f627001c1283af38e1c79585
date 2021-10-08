@@ -1,0 +1,2 @@
+validation.user.alreadyExists = 10000001
+validation.email.alreadyExists = 10000002

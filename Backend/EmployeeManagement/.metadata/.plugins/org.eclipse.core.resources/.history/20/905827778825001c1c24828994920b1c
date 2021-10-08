@@ -1,0 +1,5 @@
+package com.employee.management.data.responce;
+
+public class ValidationFailureResponse {
+
+}

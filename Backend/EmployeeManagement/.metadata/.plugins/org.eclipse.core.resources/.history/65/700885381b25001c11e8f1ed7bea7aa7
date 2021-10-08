@@ -1,0 +1,9 @@
+package com.employee.management.services;
+
+import java.util.List;
+
+import com.employee.management.data.entity.Department;
+
+public interface DepartmentService {
+	public List<Department> getDepartments()
+}

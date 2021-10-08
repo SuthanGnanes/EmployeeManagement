@@ -1,0 +1,35 @@
+package com.employee.management.data.dto;
+
+public class RegisterDto {
+	private Long id;
+	private String eMail;
+	private String userName;
+	private String password;
+	private String type;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String geteMail() {
+		return eMail;
+	}
+	public void seteMail(String eMail) {
+		this.eMail = eMail;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	
+	
+}

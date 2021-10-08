@@ -1,0 +1,5 @@
+package com.employee.management.util;
+
+public class Constants {
+
+}

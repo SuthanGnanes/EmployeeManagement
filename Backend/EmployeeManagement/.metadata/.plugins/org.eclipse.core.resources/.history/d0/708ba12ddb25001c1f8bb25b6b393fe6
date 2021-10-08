@@ -1,0 +1,16 @@
+package com.employee.management.data.dto;
+
+import java.sql.Date;
+
+public class RegisterDto {
+	private Long id;
+	private String fullName;
+	private String eMail;
+	private String userName;
+	private String password;
+	private Date joinedDate;
+	private String phoneNumber;
+	private String address;
+	private String type;
+	
+}

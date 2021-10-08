@@ -1,0 +1,65 @@
+package com.employee.management.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.employee.management.data.dto.RegisterDto;
+import com.employee.management.data.dto.UserDto;
+import com.employee.management.data.entity.User;
+import com.employee.management.data.mapper.Mapper;
+import com.employee.management.data.responce.ValidationFailureResponse;
+import com.employee.management.services.UserService;
+import com.employee.management.util.Constants;
+import com.employee.management.util.EndpointURI;
+import com.employee.management.util.ValidationConstance;
+import com.employee.management.util.ValidationFailureStatusCodes;
+
+@CrossOrigin(origins = "http://localhost:3000")
+@RestController
+public class UserController {
+	
+	@Autowired
+	private UserService userService;
+	@Autowired
+	private Mapper mapper;
+	@Autowired
+	ValidationFailureStatusCodes validationFailureStatusCodes;
+	
+	@PostMapping(value = EndpointURI.ADD_USER)
+	public ResponseEntity<Object> registerUser(@RequestBody RegisterDto registerDto){
+		if(userService.isEmailAlreadyExist(registerDto.geteMail()))
+		{
+			return new ResponseEntity<>(new ValidationFailureResponse(ValidationConstance.EMAIL_EXISTS,
+					validationFailureStatusCodes.getEmailAlreadyExists()), HttpStatus.BAD_REQUEST);
+		}
+		User user = mapper.map(registerDto, User.class);
+		userService.addUser(user);
+		return new ResponseEntity<Object>(Constants.REGISTER_SUCCESS, HttpStatus.OK);
+	}
+	
+	@PutMapping(value = EndpointURI.USER)
+	public ResponseEntity<Object> updateUser(@RequestBody UserDto userDto){
+		if(userService.isEmailAlreadyExist(userDto.geteMail()))
+		{
+			return new ResponseEntity<>(new ValidationFailureResponse(ValidationConstance.EMAIL_EXISTS,
+					validationFailureStatusCodes.getEmailAlreadyExists()), HttpStatus.BAD_REQUEST);
+		}
+		if(userService.isUserNameAlreadyExist(userDto.getUserName()))
+		{
+			return new ResponseEntity<>(new ValidationFailureResponse(ValidationConstance.USER_EXISTS,
+					validationFailureStatusCodes.getUserNameAlreadyExists()), HttpStatus.BAD_REQUEST);
+		}
+		User user = mapper.map(userDto, User.class);
+		userService.addUser(user);
+		return new ResponseEntity<Object>(Constants.USER_UPDATED_SUCCESS, HttpStatus.OK);
+	}
+	
+	
+
+}

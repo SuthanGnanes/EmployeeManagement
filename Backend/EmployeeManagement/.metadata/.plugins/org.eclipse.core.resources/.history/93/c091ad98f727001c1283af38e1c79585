@@ -1,0 +1,15 @@
+validation.user.alreadyExists = 10000001
+validation.email.alreadyExists = 10000002
+
+EmployeeDto.fullName.blank = 20000003
+EmployeeDto.firstName.null = 20000004
+EmployeeDto.fullName.empty = 20000005
+EmployeeDto.salary.blank = 20000006
+EmployeeDto.salary.null = 20000007
+EmployeeDto.salary.empty = 20000008
+EmployeeDto.departmentName.blank = 20000009
+EmployeeDto.departmentName.null = 20000010
+EmployeeDto.departmentName.empty = 20000011
+EmployeeDto.position.blank = 20000012
+EmployeeDto.position.null = 20000013
+EmployeeDto.position.empty = 20000014

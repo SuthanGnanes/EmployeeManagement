@@ -1,0 +1,36 @@
+package com.employee.management.data.dto;
+
+public class EmployeeDto {
+	private Long id;
+	private String fullName;
+	private double Salary;
+	private String departmentName;
+	private String possition;
+	
+	public String getPossition() {
+		return possition;
+	}
+	public void setPossition(String possition) {
+		this.possition = possition;
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getFullName() {
+		return fullName;
+	}
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+	public double getSalary() {
+		return Salary;
+	}
+	public void setSalary(double salary) {
+		Salary = salary;
+	}
+
+	
+}

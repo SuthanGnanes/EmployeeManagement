@@ -1,0 +1,14 @@
+package com.employee.management.services;
+
+import java.util.List;
+
+import com.employee.management.data.entity.Employee;
+
+public interface EmployeeService {
+	public void createEmployee(Employee employee);
+	public void deleteEmployee(Long employeeId);
+	public void updateEmployee(Employee employee);
+	public List<Employee> getEmployees();
+	public Employee getEmployee(Long employeeId);
+	public List<Employee> findEmployeeByDepartment(String departmentName);
+}

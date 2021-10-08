@@ -1,0 +1,5 @@
+package com.employee.management.data.dto;
+
+public class Emo {
+
+}

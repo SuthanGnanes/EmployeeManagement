@@ -1,0 +1,93 @@
+package com.employee.management.data.entity;
+
+import java.sql.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "employee")
+public class Employee {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String fullName;
+	private double Salary;
+	private String possition;
+	private String designation;
+	private String eMail;
+	private String userName;
+	private Date joinDate;
+	private int phoneNumber;
+	private String Addess;
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "departmentName")
+	private Department department;
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getFullName() {
+		return fullName;
+	}
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+	public double getSalary() {
+		return Salary;
+	}
+	public void setSalary(double salary) {
+		Salary = salary;
+	}
+	public String getPossition() {
+		return possition;
+	}
+	public void setPossition(String possition) {
+		this.possition = possition;
+	}
+	public String getDesignation() {
+		return designation;
+	}
+	public void setDesignation(String designation) {
+		this.designation = designation;
+	}
+	public String geteMail() {
+		return eMail;
+	}
+	public void seteMail(String eMail) {
+		this.eMail = eMail;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public Date getJoinDate() {
+		return joinDate;
+	}
+	public void setJoinDate(Date joinDate) {
+		this.joinDate = joinDate;
+	}
+	public int getPhoneNumber() {
+		return phoneNumber;
+	}
+	public void setPhoneNumber(int phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	public String getAddess() {
+		return Addess;
+	}
+	public void setAddess(String addess) {
+		Addess = addess;
+	}
+}
